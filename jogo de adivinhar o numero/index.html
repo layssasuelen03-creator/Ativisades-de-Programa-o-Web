@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Atividade de JavaScript</h1>
+   
+    <script>
+       let numeroSecreto = Math.floor(Math.random() * 20) + 1;
+       let tentativa = 0;
+
+     while (tentativa != numeroSecreto) 
+     {
+
+          tentativa = Number(prompt("JOGO 1\nAdivinhe o número entre 1 e 20"));
+
+          if (tentativa > numeroSecreto) 
+          {
+              alert("O número secreto é MENOR.");
+          }
+
+          else if (tentativa < numeroSecreto) 
+          {
+              alert("O número secreto é MAIOR.");
+          }
+
+          else {
+             alert("Parabéns! Você acertou o número.");
+          }
+     }
+
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
