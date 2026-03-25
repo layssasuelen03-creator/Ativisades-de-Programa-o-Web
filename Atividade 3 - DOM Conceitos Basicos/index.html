@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Página Interativa com JavaScript</title>
+</head>
+<body>
+
+    <h1>DOM: Página Interativa com JavaScript</h1>
+    <br>
+
+    <!--Botões Contador -->
+    <button id="incrementar">Incrementar</button>
+    <button id="decrementar">Decrementar</button>
+    <p id="contador" style="font-size: 18px;">0</p>
+    <br>
+
+    <!-- Responsável por mostra quantos caracteres foram digitados -->
+    <input type="text" id="campoTexto" placeholder="Digite algo..." style="font-size: 14px; padding: 10px; width: 185px;">
+    <p id="contadorCaracteres" style="font-size: 18px;">0 caracteres</p>
+
+    <!-- Ao clicar o enter a palavra vai ser salva -->
+    <div id="paragrafos"></div>
+    <br>
+
+    <!-- Tipos de lista para a escolha -->
+    <p style="font-size: 18px;">Escolha o tipo de lista:</p>
+    <select id="tipoLista" style="font-size: 14px; padding: 9px; width: 185px;">
+        <option value="ul" >Lista Não Ordenada</option>
+        <option value="ol" >Lista Ordenada</option>
+    </select>
+
+    <button id="adicionarLista">Adicionar Lista</button>
+
+    <div id="listas"></div>
+    <br>
+
+    <!-- Botão para resetar a página -->
+    <button id="resetar">Resetar Tudo</button>
+
+    <script src="script.js"></script>
+
+    <style>
+   
+    button {
+        font-size: 14px;   
+        padding: 8px 10px;  
+    }
+</style>
+</style>
+
+</body>
+</html>
