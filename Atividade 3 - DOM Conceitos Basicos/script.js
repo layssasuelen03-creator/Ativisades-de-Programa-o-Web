@@ -69,7 +69,7 @@ btnReset.addEventListener("click", () => {
     contadorEl.textContent = "0";
 
     paragrafosDiv.innerHTML = "";
-    listasDiv.innerHTML = "";
+    listasDiv.innerHTML = ""; 
 
     input.value = "";
     contadorCaracteres.textContent = "0 caracteres";
