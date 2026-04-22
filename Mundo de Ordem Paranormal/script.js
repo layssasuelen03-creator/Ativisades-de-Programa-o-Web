@@ -33,7 +33,7 @@ const PERGUNTAS = [
     ]
   },
   {
-    texto: "Todos têm uma origem antes de tudo dar errado. Qual destas origens mais se encaixaria com você?",
+    texto: "Todos têm uma origem antes de tudo dar errado, baseado nas seguintes origens, qual mais se encaixaria com você?",
     opcoes: [
       { texto: "Jardineira — Cuidava de plantas e as vendia nas proximidades junto de sua mãe.",                         pontos: { barbara: 3, amelie: 2, olivier: 1, milo: 1 } },
       { texto: "Pescador — Ajudava o pai para alimentar a ilha e vender os peixes.",                                     pontos: { milo: 3, barbara: 2, olivier: 1, amelie: 1 } },
@@ -49,7 +49,7 @@ const PERGUNTAS = [
     ]
   },
   {
-    texto: "Ao chegar na ilha, é perceptível que algo estranho está acontecendo. O que você faz primeiro?",
+    texto: "Ao chegar na ilha, é perceptível que algo estranho está acontecendo, como se o lugar guardasse segredos antigos. O que você faz primeiro?",
     opcoes: [
       { texto: "Caminha observando cada detalhe: marcas no chão, construções, qualquer padrão.",  pontos: { olivier: 3, amelie: 2, barbara: 2, milo: 1 } },
       { texto: "Se deixa levar pela sensação do lugar, tentando sentir o que está acontecendo.",  pontos: { amelie: 3, milo: 2, barbara: 1, olivier: 1 } },
@@ -73,7 +73,7 @@ const PERGUNTAS = [
     ]
   },
   {
-    texto: "Com o passar do tempo, o medo começa a afetar as decisões. Uma discussão surge e ninguém parece concordar. A situação exige uma postura. Você…",
+    texto: "Com o passar do tempo, o medo começa a afetar as decisões. Uma discussão surge e ninguém parece concordar sobre o que fazer. A situação exige uma postura. Você…",
     opcoes: [
       { texto: "Tenta entender cada lado e diminuir o conflito.",     pontos: { amelie: 3, barbara: 2, olivier: 1, milo: 1 } },
       { texto: "Assume a responsabilidade e toma uma decisão clara.", pontos: { barbara: 3, olivier: 2, milo: 1, amelie: 1 } },
@@ -81,7 +81,7 @@ const PERGUNTAS = [
     ]
   },
   {
-    texto: "O grupo encontra uma estrutura escondida na ilha. Ao entrar, o ar fica mais frio, mais pesado. Sua reação é…",
+    texto: "O grupo encontra uma estrutura escondida na ilha. As paredes carregam marcas e símbolos antigos, como se guardassem uma história esquecida. Ao entrar, o ambiente muda, o ar fica mais frio, mais pesado. Sua reação é…",
     opcoes: [
       { texto: "Observar tudo antes de interagir com qualquer elemento.",               pontos: { olivier: 3, barbara: 2, amelie: 1, milo: 1 } },
       { texto: "Tentar interpretar o significado dos símbolos nas paredes.",            pontos: { amelie: 3, olivier: 2, barbara: 1, milo: 1 } },
