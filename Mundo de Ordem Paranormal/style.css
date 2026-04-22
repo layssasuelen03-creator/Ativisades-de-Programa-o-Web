@@ -1,7 +1,3 @@
-/* ========================================================
-   ILHA DAS SOMBRAS — CSS
-   Tema: Horror gótico, ilha paranormal, atmosfera sombria
-   ======================================================== */
 
 /* === VARIÁVEIS === */
 :root {
@@ -41,15 +37,6 @@ body {
   position: relative;
 }
 
-/* === CANVAS PARTÍCULAS === */
-#particles {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.5;
-}
-
 /* === SCREENS === */
 .screen {
   position: fixed;
@@ -70,9 +57,7 @@ body {
   pointer-events: all;
 }
 
-/* ========================================================
-   TELA DE BOAS-VINDAS
-   ======================================================== */
+/*TELA DE BOAS-VINDAS */
 .welcome-wrapper {
   max-width: 620px;
   width: 100%;
@@ -190,9 +175,7 @@ body {
   letter-spacing: 0.1em;
 }
 
-/* ========================================================
-   TELA DO QUESTIONÁRIO
-   ======================================================== */
+/*TELA DO QUESTIONÁRIO */
 .quiz-wrapper {
   max-width: 680px;
   width: 100%;
@@ -356,9 +339,7 @@ body {
   animation: fadeSlideIn 0.4s ease forwards;
 }
 
-/* ========================================================
-   TELA DE RESULTADO
-   ======================================================== */
+/*TELA DE RESULTADO*/
 .result-wrapper {
   max-width: 640px;
   width: 100%;
@@ -500,18 +481,14 @@ body {
   margin: 0 auto;
 }
 
-/* ========================================================
-   RESPONSIVIDADE
-   ======================================================== */
+/*RESPONSIVIDADE*/
 @media (max-width: 600px) {
   .question-card { padding: 1.6rem 1.2rem 1.4rem; }
   .quiz-label { display: none; }
   .score-name { min-width: 80px; font-size: 0.72rem; }
 }
 
-/* ========================================================
-   SCROLLBAR PERSONALIZADA
-   ======================================================== */
+/*SCROLLBAR PERSONALIZADA*/
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }

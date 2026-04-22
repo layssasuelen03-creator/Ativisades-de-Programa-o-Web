@@ -1,5 +1,4 @@
 
-/* 1. OBJETOS E ARRAYS — Personagens */
 const PERSONAGENS = [
   {
     id: "milo", nome: "Milo Castelo", cor: "#4a90a4",
@@ -23,7 +22,7 @@ const PERSONAGENS = [
   }
 ];
 
-/* 2. ARRAYS — Perguntas com pontuações ocultas */
+
 const PERGUNTAS = [
   {
     texto: "Para começar sua jornada para derrotar uma certa criatura paranormal, você precisa escolher uma classe. Qual mais se encaixa com você?",
@@ -107,16 +106,15 @@ const PERGUNTAS = [
   }
 ];
 
-/* 3. CLASSE PRINCIPAL — Quiz (Orientação a Objetos) */
+
 class Quiz {
   constructor(perguntas, personagens) {
     this.perguntas        = perguntas;
     this.personagens      = personagens;
-    this.perguntaAtual    = 0;        // let implícito via propriedade mutável
+    this.perguntaAtual    = 0;
     this.opcaoSelecionada = null;
     this.pontuacoes       = {};
 
-    // Referências DOM
     this.elProgressBar  = document.getElementById("progress-bar");
     this.elProgressText = document.getElementById("progress-text");
     this.elQuestionNum  = document.getElementById("question-number");
@@ -138,18 +136,15 @@ class Quiz {
     const num      = this.perguntaAtual + 1;
     const total    = this.perguntas.length;
 
-    // Atualiza progresso
     this.elProgressBar.style.width  = `${(num / total) * 100}%`;
     this.elProgressText.textContent = `${num} / ${total}`;
     this.elQuestionNum.textContent  = `Pergunta ${num < 10 ? "0" + num : num}`;
     this.elQuestionText.textContent = pergunta.texto;
 
-    // Reseta estado visual
     this.elOptionsList.innerHTML = "";
     this.opcaoSelecionada        = null;
     this.elBtnNext.disabled      = true;
 
-    // Cria botões de opção — laço forEach com arrow function
     ["A", "B", "C"].forEach((letra, i) => {
       const btn = document.createElement("button");
       btn.className = "option-btn";
@@ -158,7 +153,6 @@ class Quiz {
       this.elOptionsList.appendChild(btn);
     });
 
-    // Animação de entrada (força reflow para reiniciar a animação)
     this.elCard.classList.remove("animating");
     void this.elCard.offsetWidth;
     this.elCard.classList.add("animating");
@@ -166,7 +160,6 @@ class Quiz {
 
   _selecionarOpcao(indice) {
     this.opcaoSelecionada = indice;
-    // Estrutura condicional via toggle: marca apenas o clicado
     this.elOptionsList.querySelectorAll(".option-btn").forEach((b, i) => {
       b.classList.toggle("selected", i === indice);
     });
@@ -176,7 +169,6 @@ class Quiz {
   avancar() {
     if (this.opcaoSelecionada === null) return;
 
-    // Soma pontuações — for...in com hasOwnProperty
     const pontos = this.perguntas[this.perguntaAtual].opcoes[this.opcaoSelecionada].pontos;
     for (const id in pontos) {
       if (Object.prototype.hasOwnProperty.call(pontos, id)) {
@@ -184,7 +176,6 @@ class Quiz {
       }
     }
 
-    // Incrementa e verifica fim do quiz
     if (++this.perguntaAtual >= this.perguntas.length) {
       this._calcularResultado();
     } else {
@@ -195,7 +186,6 @@ class Quiz {
   _calcularResultado() {
     let maiorPontuacao = -1, vencedorId = null;
 
-    // Laço para achar o maior
     for (const id in this.pontuacoes) {
       if (this.pontuacoes[id] > maiorPontuacao) {
         maiorPontuacao = this.pontuacoes[id];
@@ -203,7 +193,6 @@ class Quiz {
       }
     }
 
-    // Dispara evento customizado com os dados do resultado
     document.dispatchEvent(new CustomEvent("quizFinalizado", {
       detail: {
         vencedor:   this.personagens.find(p => p.id === vencedorId),
@@ -213,7 +202,7 @@ class Quiz {
   }
 }
 
-/* 4. CLASSE DE RESULTADO */
+
 class ResultadoRenderer {
   constructor(personagens) {
     this.personagens = personagens;
@@ -228,12 +217,10 @@ class ResultadoRenderer {
     this.elName.textContent = vencedor.nome;
     this.elDesc.textContent = vencedor.desc;
 
-    // Objeto de imagens reais
     const imagens = { amelie: "img/amelie.jpeg", barbara: "img/barbara.jpeg", olivier: "img/oliver.jpeg", milo: "img/milo.jpeg" };
     this.elImg.src = imagens[vencedor.id] || "img/milo.jpeg";
     this.elImg.alt = vencedor.nome;
 
-    // Traços — cria tags dinamicamente
     this.elTraits.innerHTML = "";
     vencedor.tracos.forEach(traco => {
       const tag = document.createElement("span");
@@ -249,7 +236,6 @@ class ResultadoRenderer {
     this.elBars.innerHTML = "";
     const maxVal = Math.max(...Object.values(pontuacoes));
 
-    // Spread + sort para ordenar sem mutar o original
     [...this.personagens]
       .sort((a, b) => pontuacoes[b.id] - pontuacoes[a.id])
       .forEach(p => {
@@ -264,7 +250,6 @@ class ResultadoRenderer {
         this.elBars.appendChild(item);
       });
 
-    // Anima as barras no próximo frame
     requestAnimationFrame(() => {
       document.querySelectorAll(".score-fill").forEach(bar => {
         bar.style.width = bar.dataset.width + "%";
@@ -273,66 +258,7 @@ class ResultadoRenderer {
   }
 }
 
-/* 5. CLASSE DE PARTÍCULAS */
-class ParticleSystem {
-  constructor(canvasId) {
-    this.canvas    = document.getElementById(canvasId);
-    this.ctx       = this.canvas.getContext("2d");
-    this.particles = [];
-    this._resize();
-    this._spawn();
-    window.addEventListener("resize", () => this._resize());
-  }
 
-  _resize() {
-    this.canvas.width  = window.innerWidth;
-    this.canvas.height = window.innerHeight;
-  }
-
-  _spawn() {
-    const count = Math.floor((window.innerWidth * window.innerHeight) / 12000);
-    for (let i = 0; i < count; i++) this.particles.push(this._novaParticula());
-  }
-
-  _novaParticula() {
-    return {
-      x:     Math.random() * window.innerWidth,
-      y:     Math.random() * window.innerHeight,
-      r:     Math.random() * 1.2 + 0.2,
-      alpha: Math.random() * 0.4 + 0.05,
-      dy:    -(Math.random() * 0.3 + 0.1),
-      dx:    (Math.random() - 0.5) * 0.15,
-      life:  Math.random()
-    };
-  }
-
-  _step() {
-    const { ctx, canvas, particles } = this;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (let i = 0; i < particles.length; i++) {
-      var p = particles[i];
-      p.x += p.dx; p.y += p.dy; p.life += 0.003;
-
-      if (p.y < -5 || p.life > 1) {
-        particles[i]   = this._novaParticula();
-        particles[i].y = canvas.height + 5;
-        continue;
-      }
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(201,168,76,${p.alpha * Math.sin(p.life * Math.PI)})`;
-      ctx.fill();
-    }
-
-    requestAnimationFrame(() => this._step());
-  }
-
-  iniciar() { this._step(); }
-}
-
-/* 6. GERENCIADOR DE TELAS (objeto literal) */
 const TelaManager = {
   _telas: {
     welcome: document.getElementById("screen-welcome"),
@@ -346,13 +272,10 @@ const TelaManager = {
   }
 };
 
-/* 7. INICIALIZAÇÃO — aguarda o DOM */
+
 document.addEventListener("DOMContentLoaded", () => {
   const quiz              = new Quiz(PERGUNTAS, PERSONAGENS);
   const resultadoRenderer = new ResultadoRenderer(PERSONAGENS);
-  const particles         = new ParticleSystem("particles");
-
-  particles.iniciar();
 
   document.getElementById("btn-start").addEventListener("click", () => {
     quiz.iniciar();
