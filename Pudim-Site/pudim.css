@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8e8d0, #f5d7a1);
+    color: #5a3e2b;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+header {
+    background: linear-gradient(90deg, #8b4513, #a0522d);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+
+.hero {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease;
+}
+
+.hero img:hover {
+    transform: scale(1.03);
+}
+
+
+section {
+    padding: 60px 0;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: #8b4513;
+}
+
+
+.card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(6px);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(139, 69, 19, 0.2);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card li {
+    margin: 12px 0;
+}
+
+
+/*Botões*/
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #d2691e, #a0522d);
+    color: white;
+    padding: 14px 35px;
+    margin: 10px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px rgba(139, 69, 19, 0.4);
+}
+
+footer {
+    background: linear-gradient(90deg, #8b4513, #a0522d);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+
+.compartilhar {
+    padding: 70px 0;
+    text-align: center;
+}
+
+.compartilhar .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.compartilhar h2 {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+#curiosidades .card {
+    max-width: 3000px;
+    margin: 0 auto;       
+    text-align: center;   
+}
+
+#curiosidades .card ul {
+    list-style: none;     
+    padding: 0;
+}
+
+#curiosidades .card li {
+    margin: 12px 0;
+}
+
+/*Jutificar Textos*/
+#sobre .card p {
+    text-align: justify;
+}
+
+#historia .card p {
+    text-align: justify;
+}
+
+
