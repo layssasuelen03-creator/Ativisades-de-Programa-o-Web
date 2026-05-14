@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enviar Feedback — CursoFeedback</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo"><span style="color:#ede9f5">Curso</span><span style="color:#9b5fe0">Feedback</span></a>
+    <a href="/" class="active">Novo Feedback</a>
+    <a href="/feedbacks/lista">Ver Feedbacks</a>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Deixe seu feedback</h1>
+      <div class="eyebrow">Curso Online</div>
+      <p>A sua opinião é muito importante para nos ajuda a melhorar a experiência de aprendizado para todos.</p>
+    </div>
+
+    <div class="card">
+      <form action="/feedbacks/enviar" method="POST">
+        <div class="form-group">
+          <label for="nome">Seu nome</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Ex: Maria Silva"
+            required
+            maxlength="80"
+          >
+        </div>
+        <div class="form-group">
+          <label for="comentario">Comentário</label>
+          <textarea
+            id="comentario"
+            name="comentario"
+            placeholder="Conte o que achou do curso, o que pode melhorar..."
+            required
+            maxlength="600"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          Enviar Feedback
+        </button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

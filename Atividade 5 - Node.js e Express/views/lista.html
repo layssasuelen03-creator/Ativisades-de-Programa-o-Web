@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedbacks — CursoFeedback</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo"><span style="color:#ede9f5">Curso</span><span style="color:#9b5fe0">Feedback</span></a>
+    <a href="/">Novo Feedback</a>
+    <a href="/feedbacks/lista" class="active">Ver Feedbacks</a>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Feedbacks recebidos</h1>
+      <div class="eyebrow">Resultados</div>
+    </div>
+
+    <p class="feedback-count">{{COUNT_LABEL}}</p>
+
+    <div class="feedback-list">
+      {{FEEDBACKS_HTML}}
+    </div>
+  </main>
+</body>
+</html>
