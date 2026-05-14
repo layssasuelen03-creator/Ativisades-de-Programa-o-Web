@@ -238,4 +238,4 @@ input::placeholder, textarea::placeholder { color: #3d3750; }
 }
 .empty-state p { font-size: 0.875rem; font-weight: 300; }
 .empty-state a { display: inline-block; margin-top: 1.25rem; color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
-.empty-state a:hover { text-decoration: underline; }
+.empty-state a:hover { text-decoration: underline; }       
